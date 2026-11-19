@@ -31,7 +31,7 @@
           <h1 class="leading-snug">
             {{ 'hero.name' | transloco }}
             <br>
-            <span class="typed-element"></span>
+            <span #typedElement></span>
           </h1>
         </div>
         <p class="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-2xl">
@@ -39,18 +39,26 @@
         </p>
 
         <div class="flex gap-4">
-          <p-button
+          <button
+            pButton
+            type="button"
             class="p-button-accent"
-            icon="pi pi-briefcase"
-            label="{{ 'portfolio' | transloco }}"
-            [raised]="true"
-          ></p-button>
-          <p-button
-            icon="pi pi-envelope"
+            size="large"
+            raised
+          >
+            <svg data-p-icon="briefcase" [size]="20"></svg>
+            {{ 'portfolio' | transloco }}
+          </button>
+          <button
+            pButton
+            type="button"
             severity="secondary"
-            label="{{ 'contact.me' | transloco }}"
-            [raised]="true"
-          ></p-button>
+            size="large"
+            raised
+          >
+            <svg data-p-icon="envelope" [size]="20"></svg>
+            {{ 'contact.me' | transloco }}
+          </button>
         </div>
       </div>
 

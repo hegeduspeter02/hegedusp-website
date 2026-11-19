@@ -1,25 +1,35 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { TranslocoPipe, translate } from '@jsverse/transloco';
+import { Component, ElementRef, effect, viewChild } from '@angular/core';
+import { TranslocoPipe, translateSignal } from '@jsverse/transloco';
 import { ButtonModule } from 'primeng/button';
 import Typed from 'typed.js';
+import { Briefcase } from '@primeicons/angular/briefcase';
+import { Envelope } from '@primeicons/angular/envelope';
 
 @Component({
   selector: 'app-hero-section',
   imports: [
     TranslocoPipe,
     ButtonModule,
+    Briefcase,
+    Envelope,
   ],
   templateUrl: './hero-section.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './hero-section.css',
 })
-export class HeroSection implements OnInit {
-  ngOnInit() {
-    new Typed('.typed-element', {
-      strings: [
-        translate('hero.roles'),
-      ],
-      typeSpeed: 70,
+export class HeroSection {
+  private readonly typedElement =
+    viewChild.required<ElementRef<HTMLElement>>('typedElement');
+  private readonly roles = translateSignal('hero.roles');
+
+  constructor() {
+    effect((onCleanup) => {
+      const typed = new Typed(this.typedElement().nativeElement, {
+        strings: [
+          this.roles(),
+        ],
+        typeSpeed: 70,
+      });
+      onCleanup(() => typed.destroy());
     });
   }
 }

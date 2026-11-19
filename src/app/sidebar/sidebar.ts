@@ -1,41 +1,40 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { TranslocoPipe, translate } from '@jsverse/transloco';
-import { MenuItem } from 'primeng/api';
+import { Component, signal } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { ButtonModule } from 'primeng/button';
 import { DrawerModule } from 'primeng/drawer';
-import { MenuModule } from 'primeng/menu';
 import { RippleModule } from 'primeng/ripple';
+import { Bars } from '@primeicons/angular/bars';
+
+interface SidebarItem {
+  labelKey: string;
+  icon: string;
+}
 
 @Component({
   selector: 'app-sidebar',
   imports: [
     ButtonModule,
     DrawerModule,
-    MenuModule,
     RippleModule,
     TranslocoPipe,
+    Bars,
   ],
-  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './sidebar.html',
 })
-export class Sidebar implements OnInit {
-  visible: boolean = false;
-  items: MenuItem[] | undefined;
-
-  ngOnInit() {
-    this.items = [
-      {
-        label: translate('about.me'),
-        icon: 'pi pi-user',
-      },
-      {
-        label: translate('portfolio'),
-        icon: 'pi pi-briefcase',
-      },
-      {
-        label: translate('contact.me'),
-        icon: 'pi pi-envelope',
-      },
-    ];
-  }
+export class Sidebar {
+  protected readonly visible = signal(false);
+  protected readonly items: SidebarItem[] = [
+    {
+      labelKey: 'about.me',
+      icon: 'pi pi-user',
+    },
+    {
+      labelKey: 'portfolio',
+      icon: 'pi pi-briefcase',
+    },
+    {
+      labelKey: 'contact.me',
+      icon: 'pi pi-envelope',
+    },
+  ];
 }

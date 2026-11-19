@@ -1,5 +1,6 @@
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { TranslocoTestingModule } from '@jsverse/transloco';
 import { HeroSection } from './hero-section';
 
 describe('HeroSection', () => {
@@ -10,6 +11,17 @@ describe('HeroSection', () => {
     await TestBed.configureTestingModule({
       imports: [
         HeroSection,
+        TranslocoTestingModule.forRoot({
+          langs: {
+            en: {},
+          },
+          translocoConfig: {
+            availableLangs: [
+              'en',
+            ],
+            defaultLang: 'en',
+          },
+        }),
       ],
     }).compileComponents();
 

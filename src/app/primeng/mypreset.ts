@@ -8,5 +8,10 @@ export const MyPreset = definePreset(Aura, {
         padding: '0',
       },
     },
+    select: {
+      option: {
+        fontSize: '1rem',
+      }
+    }
   },
 });

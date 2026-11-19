@@ -1,5 +1,6 @@
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { TranslocoTestingModule } from '@jsverse/transloco';
 import { Sidebar } from './sidebar';
 
 describe('Sidebar', () => {
@@ -10,6 +11,17 @@ describe('Sidebar', () => {
     await TestBed.configureTestingModule({
       imports: [
         Sidebar,
+        TranslocoTestingModule.forRoot({
+          langs: {
+            en: {},
+          },
+          translocoConfig: {
+            availableLangs: [
+              'en',
+            ],
+            defaultLang: 'en',
+          },
+        }),
       ],
     }).compileComponents();
 

@@ -1,9 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { TranslocoService } from '@jsverse/transloco';
 import { SelectModule } from 'primeng/select';
@@ -21,36 +17,30 @@ interface LanguageOption {
     SelectModule,
     FormsModule,
   ],
-  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './language-switcher.html',
 })
-export class LanguageSwitcher implements OnInit {
+export class LanguageSwitcher {
   private readonly transloco = inject(TranslocoService);
 
-  protected langs: LanguageOption[] | undefined;
+  protected readonly langs: LanguageOption[] = [
+    {
+      name: 'HUN',
+      code: Language.Hungarian,
+      flag: 'hu',
+    },
+    {
+      name: 'ENG',
+      code: Language.English,
+      flag: 'gb',
+    },
+  ];
 
-  ngOnInit() {
-    this.langs = [
-      {
-        name: 'HUN',
-        code: Language.Hungarian,
-        flag: 'hu',
-      },
-      {
-        name: 'ENG',
-        code: Language.English,
-        flag: 'gb',
-      },
-    ];
-  }
+  protected readonly selectedLang = toSignal(this.transloco.langChanges$, {
+    initialValue: this.transloco.getActiveLang(),
+  });
 
-  selectedLang() {
-    return this.transloco.getActiveLang();
-  }
-
-  changeLang(lang: string) {
+  protected changeLang(lang: string) {
     this.transloco.setActiveLang(lang);
     localStorage.setItem('lang', lang);
-    window.location.reload();
   }
 }

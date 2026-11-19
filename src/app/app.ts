@@ -1,12 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, effect, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-import { RouterOutlet } from '@angular/router';
-import {
-  FaIconLibrary,
-  FontAwesomeModule,
-} from '@fortawesome/angular-fontawesome';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { translate } from '@jsverse/transloco';
+import { TranslocoService, translateSignal } from '@jsverse/transloco';
 import { HeroSection } from './hero-section/hero-section';
 import { LanguageSwitcher } from './language-switcher/language-switcher';
 import { ChipTiming } from './portfolio/chip-timing/chip-timing';
@@ -15,23 +11,26 @@ import { Sidebar } from './sidebar/sidebar';
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet,
     LanguageSwitcher,
-    FontAwesomeModule,
     Sidebar,
     HeroSection,
     ChipTiming,
   ],
   templateUrl: './app.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css',
 })
 export class App {
   private readonly title = inject(Title);
-  private readonly faIconLibrary = inject(FaIconLibrary);
+  private readonly document = inject(DOCUMENT);
+  private readonly activeLang = toSignal(inject(TranslocoService).langChanges$);
+  private readonly websiteLabel = translateSignal('personal.website');
 
   constructor() {
-    this.title.setTitle(`Hegedűs Péter | ${translate('personal.website')}`);
-    this.faIconLibrary.addIconPacks(fas);
+    effect(() => {
+      this.title.setTitle(`Hegedűs Péter | ${this.websiteLabel()}`);
+    });
+    effect(() => {
+      this.document.documentElement.lang = this.activeLang() ?? '';
+    });
   }
 }

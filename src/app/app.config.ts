@@ -8,12 +8,12 @@ import {
 import { provideRouter } from '@angular/router';
 import { provideTransloco } from '@jsverse/transloco';
 import { providePrimeNG } from 'primeng/config';
+import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 import { MyPreset } from './primeng/mypreset';
 import { initTransloco } from './transloco/transloco-init';
 import { TranslocoHttpLoader } from './transloco/transloco-loader';
 import { Language } from './utils/enums';
-import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +24,10 @@ export const appConfig: ApplicationConfig = {
         preset: MyPreset,
         options: {
           darkModeSelector: false,
+          cssLayer: {
+            name: 'primeng',
+            order: 'theme, base, primeng',
+          },
         },
       },
       ripple: true,

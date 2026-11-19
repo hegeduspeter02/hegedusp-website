@@ -1,24 +1,19 @@
 import { inject } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { lastValueFrom } from 'rxjs';
-import config from '../../../transloco.config';
 import { Language } from '../utils/enums';
 
-function getBrowserLang(): string | undefined {
-  const langugeTag = navigator.language;
-  const baseLang = langugeTag.split('-')[0];
+function toSupportedLang(tag: string | null | undefined): Language | undefined {
+  const baseLang = tag?.split('-')[0];
 
-  return Object.values(Language).includes(baseLang as Language)
-    ? baseLang
-    : undefined;
+  return Object.values(Language).find((lang) => lang === baseLang);
 }
 
 export async function initTransloco() {
   const transloco = inject(TranslocoService);
   const lang =
-    localStorage.getItem('lang') ??
-    getBrowserLang() ??
-    config.defaultLang ??
+    toSupportedLang(localStorage.getItem('lang')) ??
+    toSupportedLang(navigator.language) ??
     Language.Hungarian;
 
   transloco.setActiveLang(lang);
