@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslocoPipe, translate } from '@jsverse/transloco';
 import { ButtonModule } from 'primeng/button';
 import Typed from 'typed.js';
@@ -10,6 +10,7 @@ import Typed from 'typed.js';
     ButtonModule,
   ],
   templateUrl: './hero-section.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './hero-section.css',
 })
 export class HeroSection implements OnInit {

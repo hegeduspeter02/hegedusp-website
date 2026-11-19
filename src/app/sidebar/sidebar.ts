@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslocoPipe, translate } from '@jsverse/transloco';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -15,6 +15,7 @@ import { RippleModule } from 'primeng/ripple';
     RippleModule,
     TranslocoPipe,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './sidebar.html',
 })
 export class Sidebar implements OnInit {

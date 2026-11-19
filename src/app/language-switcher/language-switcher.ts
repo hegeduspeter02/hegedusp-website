@@ -1,4 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslocoService } from '@jsverse/transloco';
 import { SelectModule } from 'primeng/select';
@@ -16,6 +21,7 @@ interface LanguageOption {
     SelectModule,
     FormsModule,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './language-switcher.html',
 })
 export class LanguageSwitcher implements OnInit {

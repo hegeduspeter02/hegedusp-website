@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import {
   type ApplicationConfig,
   isDevMode,
@@ -27,7 +27,7 @@ export const appConfig: ApplicationConfig = {
       },
       ripple: true,
     }),
-    provideHttpClient(),
+    provideHttpClient(withXhr()),
     provideTransloco({
       config: {
         availableLangs: [
