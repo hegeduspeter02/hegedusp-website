@@ -4,21 +4,24 @@
       <ul class="list-none px-4 py-0 m-0">
         @for (item of items; track item.label) {
         <li class="rounded-lg overflow-hidden">
-          <a
+          <div
             pRipple
             class="flex items-baseline cursor-pointer p-4 gap-4 hover:bg-emerald-100"
           >
             <i [class]="item.icon + ' text-gray-500'"></i>
             <span class="font-medium"> {{ item.label }} </span>
-          </a>
+          </div>
         </li>
         }
       </ul>
     </div>
   </p-drawer>
-  <p-button
+  <button
+    pButton
+    iconOnly
     class="fixed top-0 left-0 m-4 z-50 shadow-xl"
     (click)="visible = true"
-    icon="pi pi-bars"
-  />
+  >
+    <svg data-p-icon="bars"></svg>
+  </button>
 </div>

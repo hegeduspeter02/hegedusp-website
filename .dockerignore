@@ -1,0 +1,11 @@
+.git
+.idea
+.vscode
+.windsurf
+.angular
+node_modules
+dist
+out-tsc
+coverage
+tmp
+npm-debug.log

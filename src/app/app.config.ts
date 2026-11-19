@@ -13,6 +13,7 @@ import { MyPreset } from './primeng/mypreset';
 import { initTransloco } from './transloco/transloco-init';
 import { TranslocoHttpLoader } from './transloco/transloco-loader';
 import { Language } from './utils/enums';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -26,6 +27,7 @@ export const appConfig: ApplicationConfig = {
         },
       },
       ripple: true,
+      license: environment.primeUiLicenseKey,
     }),
     provideHttpClient(withXhr()),
     provideTransloco({
