@@ -2,13 +2,19 @@
   "sidebar": {
     "header": "Menu"
   },
+  "portfolio": {
+    "chipTiming": {
+      "title": "Chip Timing",
+      "description": "I have been doing chip timing as a hobby since 2024. Since then, I have worked as a timekeeper at numerous running events of various sizes, gaining solid hands-on experience. The table below lists the races I have timed."
+    },
+    "title": "Portfolio"
+  },
   "hero": {
     "welcome": "Hello!",
     "name": "I am Péter Hegedűs,",
     "description": "This website was created to showcase my professional experience, featuring my work, projects, and achievements in web development and chip-based timing systems.",
     "roles": "software developer."
   },
-  "portfolio": "Portfolio",
   "contact": {
     "me": "Contact me"
   },

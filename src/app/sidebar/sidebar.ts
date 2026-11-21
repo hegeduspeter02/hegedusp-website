@@ -29,7 +29,7 @@ export class Sidebar {
       icon: 'pi pi-user',
     },
     {
-      labelKey: 'portfolio',
+      labelKey: 'portfolio.title',
       icon: 'pi pi-briefcase',
     },
     {

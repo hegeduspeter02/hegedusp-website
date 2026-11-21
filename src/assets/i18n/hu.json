@@ -2,13 +2,19 @@
   "sidebar": {
     "header": "Menü"
   },
+  "portfolio": {
+    "chipTiming": {
+      "title": "Chipes időmérés",
+      "description": "2024 óta hobbi szinten foglalkozom chipes időméréssel. Azóta számos kisebb és nagyobb futóversenyen dolgoztam időmérőként, így rengeteg gyakorlati tapasztalatot szereztem. Az alábbi táblázatban az általam mért versenyek listája található."
+    },
+    "title": "Munkáim"
+  },
   "hero": {
     "welcome": "Szia!",
     "name": "Hegedűs Péter vagyok,",
     "description": "Ez a weboldal a szakmai tapasztalataim bemutatására jött létre. Az oldalon a webfejlesztéshez, valamint chipes időméréshez kapcsolódó munkáim és eredményeim találhatók.",
     "roles": "szoftverfejlesztő."
   },
-  "portfolio": "Munkáim",
   "contact": {
     "me": "Kapcsolat"
   },

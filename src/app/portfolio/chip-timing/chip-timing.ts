@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-chip-timing',
-  imports: [],
+  imports: [
+    TranslocoPipe,
+  ],
   templateUrl: './chip-timing.html',
   styleUrl: './chip-timing.css',
 })
