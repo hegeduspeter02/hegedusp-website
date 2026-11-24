@@ -19,6 +19,7 @@
     "@angular/common": "^22.3.0",
     "@angular/compiler": "^22.3.0",
     "@angular/core": "^22.3.0",
+    "@angular/fire": "22.0.0-rc.1",
     "@angular/forms": "^22.3.0",
     "@angular/platform-browser": "^22.3.0",
     "@angular/router": "^22.3.0",
@@ -34,7 +35,8 @@
     "primeng": "^22.1.5",
     "rxjs": "~7.8.2",
     "tslib": "^2.9.1",
-    "typed.js": "^3.0.0"
+    "typed.js": "^3.0.0",
+    "firebase": "^13.0.0"
   },
   "devDependencies": {
     "@angular/build": "^22.3.0",
