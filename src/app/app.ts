@@ -3,6 +3,7 @@ import { Component, effect, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { TranslocoService, translateSignal } from '@jsverse/transloco';
+import { BackToTop } from './back-to-top/back-to-top';
 import { HeroSection } from './hero-section/hero-section';
 import { LanguageSwitcher } from './language-switcher/language-switcher';
 import { ChipTiming } from './portfolio/chip-timing/chip-timing';
@@ -15,6 +16,7 @@ import { Sidebar } from './sidebar/sidebar';
     Sidebar,
     HeroSection,
     ChipTiming,
+    BackToTop,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

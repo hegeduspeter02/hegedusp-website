@@ -1,9 +1,16 @@
-import { Component, ElementRef, effect, viewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  effect,
+  inject,
+  viewChild,
+} from '@angular/core';
 import { TranslocoPipe, translateSignal } from '@jsverse/transloco';
 import { ButtonModule } from 'primeng/button';
 import Typed from 'typed.js';
 import { Briefcase } from '@primeicons/angular/briefcase';
 import { Envelope } from '@primeicons/angular/envelope';
+import { ScrollService } from '../shared/scroll.service';
 
 @Component({
   selector: 'app-hero-section',
@@ -17,6 +24,7 @@ import { Envelope } from '@primeicons/angular/envelope';
   styleUrl: './hero-section.css',
 })
 export class HeroSection {
+  protected readonly scroll = inject(ScrollService);
   private readonly typedElement =
     viewChild.required<ElementRef<HTMLElement>>('typedElement');
   private readonly roles = translateSignal('hero.roles');
