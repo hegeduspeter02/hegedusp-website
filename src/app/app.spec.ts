@@ -1,6 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { TranslocoTestingModule } from '@jsverse/transloco';
+import { signal } from '@angular/core';
 import { App } from './app';
+import { RaceService } from './portfolio/chip-timing/race.service';
 
 describe('App', () => {
   beforeEach(async () => {
@@ -18,6 +20,14 @@ describe('App', () => {
             defaultLang: 'en',
           },
         }),
+      ],
+      providers: [
+        {
+          provide: RaceService,
+          useValue: {
+            races: signal([]),
+          },
+        },
       ],
     }).compileComponents();
   });

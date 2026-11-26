@@ -5,7 +5,15 @@
   "portfolio": {
     "chipTiming": {
       "title": "Chipes időmérés",
-      "description": "2024 óta hobbi szinten foglalkozom chipes időméréssel. Azóta számos kisebb és nagyobb futóversenyen dolgoztam időmérőként, így rengeteg gyakorlati tapasztalatot szereztem. Az alábbi táblázatban az általam mért versenyek listája található."
+      "description": "2024 óta hobbi szinten foglalkozom chipes időméréssel. Azóta számos kisebb és nagyobb futóversenyen dolgoztam időmérőként, így rengeteg gyakorlati tapasztalatot szereztem. Az alábbi táblázatban az általam mért versenyek listája található.",
+      "table": {
+        "year": "Év",
+        "date": "Dátum",
+        "name": "Verseny",
+        "location": "Helyszín",
+        "type": "Típus",
+        "empty": "Nincs találat."
+      }
     },
     "title": "Munkáim"
   },
