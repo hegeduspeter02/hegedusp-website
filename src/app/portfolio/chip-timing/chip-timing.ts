@@ -3,6 +3,7 @@ import { Component, computed, inject, linkedSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { CardModule } from 'primeng/card';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TableModule } from 'primeng/table';
 import { RaceService } from './race.service';
@@ -13,11 +14,11 @@ import { RaceService } from './race.service';
     TranslocoPipe,
     DatePipe,
     FormsModule,
+    CardModule,
     SelectButtonModule,
     TableModule,
   ],
   templateUrl: './chip-timing.html',
-  styleUrl: './chip-timing.css',
 })
 export class ChipTiming {
   private readonly raceService = inject(RaceService);
